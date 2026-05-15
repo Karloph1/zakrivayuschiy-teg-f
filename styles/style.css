@@ -264,8 +264,8 @@ button classes.
   width: 100%;
   height: 100%;
   background: rgba(0,0,0);
-  transform: translateX(-100%); 
-  transition: transform 0.5s ease-in-out; 
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
 }
 
 .button:hover::before {
@@ -356,8 +356,8 @@ dialog::backdrop {
   width: 100%;
   height: 100%;
   background: rgba(0,0,0);
-  transform: translateX(-100%); 
-  transition: transform 0.5s ease-in-out; 
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
 }
 
 .dialog__button:hover::before {
@@ -372,15 +372,12 @@ dialog::backdrop {
 .dialog .button__text {
   height: 63px;
   white-space: initial;
+  gap: 20px;
 }
 
 .dialog .footer__svg {
   width: 39px;
   height: 39px;
-}
-
-.dialog .button__text {
-  gap: 20px;
 }
 
 @media (width <= 376px) {
