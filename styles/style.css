@@ -13,26 +13,17 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' var(--main-font-weight);
-  background-image: 
-  repeating-linear-gradient(
-    90deg,
-    var(--gradient) 0 2px,
-    transparent 2px 4px
-  ),
-
-  repeating-linear-gradient(
-    0deg,
-    var(--gradient) 0 2px,
-    transparent 2px 4px
-  ),
-  
-  repeating-linear-gradient(
-    to bottom,
-    #e7e7e7,
-    #1a1a1a
-  );
+  font-variation-settings: "wght" var(--main-font-weight);
+  background-image:
+    repeating-linear-gradient(
+      90deg,
+      var(--gradient) 0 2px,
+      transparent 2px 4px
+    ),
+    repeating-linear-gradient(0deg, var(--gradient) 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(to bottom, #e7e7e7, #1a1a1a);
   background-size: cover;
+  background-attachment: fixed;
   box-sizing: border-box;
 }
 
@@ -40,9 +31,8 @@
   width: var(--block-size);
   border: 2px solid black;
   justify-self: center;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
-
 
 /*
 header classes.
@@ -50,8 +40,16 @@ header classes.
 .header {
   padding-top: clamp(122px, calc(122px + 8 * (100vw - 375px) / 325), 128px);
   padding-bottom: clamp(122px, calc(122px + 8 * (100vw - 375px) / 325), 130px);
-  padding-right: clamp(16px, calc(16px + 106.5 * (100vw - 375px) / 325), 122.5px);
-  padding-left: clamp(16px, calc(16px + 106.5 * (100vw - 375px) / 325), 122.5px);
+  padding-right: clamp(
+    16px,
+    calc(16px + 106.5 * (100vw - 375px) / 325),
+    122.5px
+  );
+  padding-left: clamp(
+    16px,
+    calc(16px + 106.5 * (100vw - 375px) / 325),
+    122.5px
+  );
   height: clamp(327px, calc(327px + 41 * (100vw - 375px) / 325), 368px);
   margin-top: 100px;
   margin-bottom: 100px;
@@ -59,28 +57,19 @@ header classes.
 
 .header__title {
   font-family: var(--accent-font);
-  font-size: clamp(
-    49px,
-    calc(49px + 16 * (100vw - 375px) / 325),
-    65px
-  );
+  font-size: clamp(49px, calc(49px + 16 * (100vw - 375px) / 325), 65px);
   font-weight: 400;
   justify-self: center;
 }
 
 .header__main {
   font-family: var(--accent-font);
-  font-size: clamp(
-    14px,
-    calc(14px + 9 * (100vw - 375px) / 325),
-    23px
-  );
+  font-size: clamp(14px, calc(14px + 9 * (100vw - 375px) / 325), 23px);
   font-weight: 400;
   margin-top: 21px;
   justify-self: center;
   text-transform: uppercase;
 }
-
 
 /*
 main class.
@@ -91,14 +80,13 @@ main class.
   justify-content: center;
   align-items: center;
   gap: 50px;
+  margin-bottom: 100px;
 }
-
 
 /*
 card classes.
 */
 .card {
-  min-height: 956px;
   display: flex;
   flex-direction: column;
 }
@@ -114,19 +102,25 @@ card classes.
 .card__title {
   font-family: var(--main-font);
   font-size: 18px;
-  height: 30px;
-  font-variation-settings: 'wght' var(--title-font-weight);
+  font-variation-settings: "wght" var(--title-font-weight);
   line-height: 100%;
   padding-top: 6px;
   padding-left: 10px;
+  margin-bottom: 6px;
+}
+
+.card__main__container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
+  padding-right: 25px;
+  gap: 25px;
 }
 
 .card__main {
   font-family: var(--main-font);
   font-size: 18px;
   font-weight: var(--main-font-weight);
-  padding-left: 25px;
-  padding-right: 25px;
   line-height: 21px;
 }
 
@@ -136,18 +130,19 @@ card classes.
   top: 25px;
   right: 0;
   margin-right: 3.6%;
-  -webkit-text-stroke: 1px #FFFFFF;
+  text-shadow: 1px 1px 0 #ffffff;
   opacity: 50%;
   mix-blend-mode: hard-light;
   z-index: 1;
 }
 
-@supports (text-stroke: 1px #FFFFFF) {
-  span {
-    text-shadow: 1px #FFFFFF;
+@supports (text-stroke: 1px #ffffff) or (-webkit-text-stroke: 1px #ffffff) {
+  .label {
+    -webkit-text-stroke: 1px #ffffff;
+    text-stroke: 1px #ffffff;
+    text-shadow: none;
   }
-} 
-
+}
 
 /*
 image classes.
@@ -162,40 +157,41 @@ image classes.
   overflow: hidden;
   height: 696px;
   position: relative;
+  border-top: 2px solid #000000;
+  border-bottom: 2px solid #000000;
 }
 
-.image__1 {
-  filter: blur(5px)
+.girl__sunrise {
+  filter: blur(5px);
 }
 
-.image__2 {
+.moon__hand {
   filter: brightness(0.4);
 }
 
-.image__3 {
+.girl__umbrella {
   filter: contrast(200%);
 }
 
-.image__4 {
+.lilac__valley {
   filter: drop-shadow(16px 16px 20px blue);
 }
 
-.image__5 {
+.swan__pair {
   filter: grayscale(50%);
 }
 
-.image__6 {
+.girl__mountain {
   filter: contrast(175%) brightness(30%);
 }
 
-.image__7 {
+.brench__tree {
   filter: opacity(25%);
 }
 
-.image__8 {
+.landscape__mountain {
   filter: saturate(30%);
 }
-
 
 /*
 button classes.
@@ -210,10 +206,10 @@ button classes.
 .button {
   width: 130px;
   height: 38px;
-  border-width: 2px;
-  background-color: #FFFFFF;
+  border: 2px solid #000000;
+  background-color: #ffffff;
   margin-right: 25px;
-  position:relative;
+  position: relative;
   overflow: hidden;
 }
 
@@ -228,26 +224,8 @@ button classes.
   white-space: nowrap;
   position: relative;
   z-index: 1;
-  color: #FFFFFF;
+  color: #ffffff;
   mix-blend-mode: difference;
-}
-
-.card__icon-button {
-  width: 39px;
-  height: 36px;
-  align-self: center;
-  background-color: #FFFFFF;
-  padding: 0;
-  border: 2px solid transparent;
-  transition: border-color 0.3s ease;
-}
-
-.card__icon-button:focus {
-  outline: none;
-}
-
-.card__icon-button:focus-visible {
-  border-color: rgb(0,0,0);
 }
 
 .button:focus {
@@ -257,67 +235,112 @@ button classes.
 }
 
 .button::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0);
+  background: rgba(0, 0, 0);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
 }
 
 .button:hover::before {
-  transform: translateX(0); /* появляется на месте */
+  transform: translateX(0);
 }
 
 /*
-footer classes.
+card__icon button classes.
 */
-.footer {
-  width: 335px;
-  height: 55px;
-  margin-top: 52px;
+.card__icon-button {
+  width: 38px;
+  height: 38px;
+  align-self: center;
+  background-color: #ffffff;
+  padding: 0;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.footer .button {
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: rgb(0, 0, 0);
+}
+
+/*
+save button classes.
+*/
+.save__button {
+  width: 335px;
+  min-height: 55px;
+  margin-right: 0px;
+}
+
+.save__button .button {
   width: 100%;
   height: 100%;
   margin-right: 0px;
 }
 
-.footer__svg {
+.save__button__svg {
   width: 21px;
   height: 21px;
   position: relative;
   z-index: 2;
-  color: #FFFFFF;
+  color: #ffffff;
   mix-blend-mode: difference;
 }
-
-.footer.rubber-block {
-  border: 0px;
-}
-
 
 /*
 dialog classes.
 */
-.dialog {
+.dialog[open] {
   width: 353px;
-  height: 191px;
   font-family: var(--accent-font);
   font-size: 14px;
   line-height: 150%;
   letter-spacing: 0%;
   text-transform: uppercase;
+  padding: 27px;
+  border: 2px solid #000000;
+}
+
+.dialog__button {
+  width: 100%;
+  border: 2px solid #000000;
+  padding: 0;
+  margin-right: 0;
+}
+
+.dialog__button__main {
+  width: 100%;
+  align-self: center;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  color: #ffffff;
+  mix-blend-mode: difference;
+}
+
+.dialog__button__main__text {
+  font-family: var(--accent-font);
+  font-size: 14px;
+  max-width: 200px;
 }
 
 dialog::backdrop {
   background-color: rgb(0 0 0);
   opacity: 75%;
-} 
+}
 
 .dialog__flex {
   display: flex;
@@ -326,103 +349,61 @@ dialog::backdrop {
   align-items: center;
 }
 
-.dialog__button {
-  width: 293px;
-  height: 38px;
-  background-color: #FFFFFF;
-  border: 2px solid #000000;
-  position: relative;
-  overflow: hidden;
-}
-
-.dialog__button-text {
-  position: relative;
-  z-index: 2;
-  color: #FFFFFF;
-  mix-blend-mode: difference;
-}
-
-.dialog__button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 0 #000000;
-  transition: box-shadow 0.3s ease;
-}
-
-.dialog__button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0);
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-}
-
-.dialog__button:hover::before {
-  transform: translateX(0); /* появляется на месте */
-}
-
 .dialog__svg {
   width: 39px;
   height: 39px;
 }
 
-.dialog .button__text {
-  height: 63px;
-  white-space: initial;
-  gap: 20px;
-}
-
-.dialog .footer__svg {
-  width: 39px;
-  height: 39px;
+.dialog__form {
+  width: 100%;
+  height: 100%;
 }
 
 @media (width <= 376px) {
   .header__main {
     margin-top: 18px;
   }
-  
-  .card {
-    min-height: 758px;
-  }
 
   .card__title {
     text-wrap: balance;
-    height: 52px;
+    line-height: 115%;
+  }
+
+  .label {
+    top: 22px;
+    right: 12px;
   }
 
   .image__container {
     height: 371px;
   }
 
-  .footer {
+  .save__button {
     width: 306px;
-    height: 84px;
+    min-height: 84px;
   }
 
-  .footer .button__text {
+  .save__button .button__text {
     flex-direction: column;
   }
 
-  .footer__svg {
+  .save__button__svg {
     width: 28px;
     height: 28px;
   }
 
-  .dialog {
+  .dialog[open] {
     width: 341px;
+    padding: 30px 36px;
+  }
+
+  .dialog__flex {
+    width: 261px;
   }
 
   .dialog__button {
     width: 261px;
   }
-}
-
-.like-icon {
-  overflow: visible;
 }
 
 .heart {
@@ -444,8 +425,13 @@ dialog::backdrop {
 }
 
 .core {
-  fill:transparent;
+  fill: transparent;
   transition: fill 0.3s 0.03s linear;
+}
+
+.like-icon {
+  overflow: visible;
+  margin: auto;
 }
 
 .like-icon:hover .core {
@@ -473,20 +459,20 @@ dialog::backdrop {
   transition: fill 0.3s linear;
 }
 
+.like-icon.is-liked .countour {
+  --countour-color: #ff0000;
+  transition: fill 0.3s 0.06s linear;
+}
+
 .like-icon.is-liked .main-body {
   fill: var(--animation-fill-color);
   transition: fill 0.3s 0.05s linear;
 }
 
-.like-icon.is-liked .countour {
-  fill: var(--animation-fill-color);
-  transition: fill 0.3s 0.06s linear;
-}
-
 .like-icon.is-liked .heart {
-  animation: heart-scale 0.3s 0.1s ease-in forwards;
+  animation: heart-scale 0.3s 0.1s ease-in;
 }
 
 .like-icon.is-liked .sparks {
-  animation: spark-fade 0.3s 0.3s ease-in forwards;
+  animation: spark-fade 0.3s 0.3s ease-in;
 }
